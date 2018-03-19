@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="person" class="com.flowergarden.run.spring.Person">
+		<property name="name" value="Сид Меер" />
+		<property name="company" ref="XCOMCompany" />
+	</bean>
+	<bean id="XCOMCompany" class="com.flowergarden.run.spring.Company">
+		<property name="name" value="XCOM" />
+	</bean>
+	<bean id="bankApplication" class="com.flowergarden.run.spring.BankApplication" autowire="byName">
+	</bean>
+
+
+</beans>
