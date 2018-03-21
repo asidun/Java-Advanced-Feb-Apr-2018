@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import com.flowergarden.exception.BouquetException;
 import com.flowergarden.exception.FlowerException;
 import com.flowergarden.exception.FlowerNotFoundException;
@@ -18,8 +20,12 @@ public class FlowerDAO {
 	
 	private Connection conn;
 
-	public FlowerDAO(Connection conn) {
-		this.conn = conn;
+	public FlowerDAO(DriverManagerDataSource dataSource) throws FlowerException {
+		try {
+			this.conn = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new FlowerException("DB connection error.");
+		}
 	}
 	
 	GeneralFlower getFlowerById(int id) throws FlowerNotFoundException, FlowerException{

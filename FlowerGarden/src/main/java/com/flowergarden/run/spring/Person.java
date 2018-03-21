@@ -1,8 +1,13 @@
 package com.flowergarden.run.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Person {
 
 	private String name;
+	@Autowired
+	@Qualifier("XCOMCompanyXML")
 	private Company company;
 	public String getName() {
 		return name;

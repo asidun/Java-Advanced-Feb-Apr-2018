@@ -10,7 +10,7 @@ public class RunSpring {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		BankApplication bank = ctx.getBean("bankApplication", BankApplication.class);
-		System.out.println(bank.getPerson().getName());
+		System.out.println(bank.getPerson().getCompany().getName());
 
 	}
 

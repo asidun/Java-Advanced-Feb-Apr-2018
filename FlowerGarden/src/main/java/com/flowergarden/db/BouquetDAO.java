@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import com.flowergarden.bouquet.MarriedBouquet;
 import com.flowergarden.exception.BouquetException;
 import com.flowergarden.exception.FlowerException;
@@ -17,8 +19,12 @@ public class BouquetDAO {
 	private Connection conn;
 	private FlowerDAO flowerDAO;
 
-	public BouquetDAO(Connection conn) {
-		this.conn = conn;
+	public BouquetDAO(DriverManagerDataSource dataSource) throws BouquetException {
+		try {
+			this.conn = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new BouquetException("DB connection error.");
+		}
 	}
 	
 	public void setFlowerDAO(FlowerDAO fDAO){
