@@ -11,7 +11,11 @@ import com.flowergarden.flowers.Chamomile;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.flowers.Rose;
 
-public class MarriedBouquet implements Bouquet<GeneralFlower> {
+public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable {
+	
+	public MarriedBouquet clone() throws CloneNotSupportedException{
+		return (MarriedBouquet) super.clone();
+	}
 
 	private float assemblePrice = 120;
 	private List<GeneralFlower> flowerList = new ArrayList<>();

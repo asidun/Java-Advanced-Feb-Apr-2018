@@ -28,7 +28,7 @@ public class FlowerDAO {
 		}
 	}
 	
-	GeneralFlower getFlowerById(int id) throws FlowerNotFoundException, FlowerException{
+	public GeneralFlower getFlowerById(int id) throws FlowerNotFoundException, FlowerException{
 		GeneralFlower flower = null;
 		String flowerName = null;
 		

@@ -26,7 +26,7 @@ public class RunJson {
 		  
 		        Unmarshaller unmarshaller = jc.createUnmarshaller();
 		        Customer customer = (Customer) unmarshaller.unmarshal(new File("input.xml"));
-		 
+		        
 		        ArrayList<PhoneNumber> numbers = new ArrayList<PhoneNumber>();
 		        numbers.add(new PhoneNumber("home", "555-123"));
 		        
